@@ -1,0 +1,10 @@
+# Fintilla
+
+> Fintilla is building an AI-powered platform to help lenders assess small businesses with limited financial records. Borrowers answer questions in a guided session on their own phone, and Fintilla turns what they share into an assessment, with evidence and reasoning.
+
+- Company: Fintilla Pte. Ltd., a Singapore-based team with experience building fintech businesses and AI platforms across Asia
+- Contact: sherrey@fintilla.com
+
+## Pages
+
+- [Home](https://www.fintilla.com/): how Fintilla helps lenders see beyond the books

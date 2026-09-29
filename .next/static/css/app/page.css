@@ -1,0 +1,290 @@
+/*!**********************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[12].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[12].use[3]!./components/css/style.css ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************/
+:root {
+  --nav-bg: transparent;
+  --nav-bg-scrolled: rgba(255, 255, 255, 0.95);
+  --text-primary: #ffffff;
+  --text-scrolled: #0f172a;
+  --text-muted: #94a3b8;
+  --accent-color: #6366f1;
+  --border-color: rgba(255, 255, 255, 0.1);
+  --nav-height: 80px;
+}
+
+/* Base Navbar Style */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--nav-height);
+  z-index: 1000;
+  background: var(--nav-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Scrolled Navbar Style */
+.navbar--scrolled {
+  background: var(--nav-bg-scrolled);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  height: 16%;
+}
+
+.navbar--scrolled .navbar__link {
+  color: var(--text-scrolled);
+}
+
+.navbar--scrolled .navbar__inner {
+  margin: 0px auto;
+}
+
+.navbar__inner {
+  width: min(1280px, calc(100% - 80px));
+  height: 100%;
+  margin: 25px auto;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Logo */
+.navbar__logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.navbar__brand {
+  color: var(--text-scrolled);
+  font-family: var(--font-jakarta), "Plus Jakarta Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+.logofin {
+  display: block;
+  width: 29px;
+  height: 42px;
+  margin: 0;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+@media (min-width: 768.98px) {
+  .logofin {
+    width: 120px;
+    height: 70%;
+  }
+
+  .navbar__brand {
+    font-size: 27px;
+  }
+}
+
+.navbar__brand {
+  color: var(--text-scrolled);
+  white-space: nowrap;
+}
+
+/* Links */
+.navbar__links {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+}
+
+.navbar__link {
+  position: relative;
+  color: #000000;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: color 0.25s ease;
+}
+
+.navbar__link::after {
+  position: absolute;
+  right: 0;
+  bottom: -6px;
+  left: 0;
+  height: 2px;
+  border-radius: 999px;
+  background: currentColor;
+  content: "";
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.25s ease;
+}
+
+.navbar__link:hover::after,
+.navbar__link:focus-visible::after {
+  transform: scaleX(1);
+}
+
+/* Right Side CTA */
+.navbar__right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.navbar__contact {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 22px;
+  background: var(--accent-color);
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+/* --- Hamburger Button & Color Logic --- */
+.navbar__menu {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 44px;
+  height: 44px;
+  background: transparent;
+  border: 1px solid var(--border-color);
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1001;
+  transition: border-color 0.3s ease;
+}
+
+.navbar--scrolled .navbar__menu {
+  border-color: rgba(0, 0, 0, 0.15);
+}
+
+.hamburger-line {
+  width: 18px;
+  height: 2px;
+  /* Default Icon Color: White */
+  background-color: #000000; 
+  border-radius: 2px;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hamburger-line:first-child {
+  transform: translateY(-3px);
+}
+
+.hamburger-line:last-child {
+  transform: translateY(3px);
+}
+
+/* 1. ON SCROLL: Change Hamburger lines to BLACK */
+.navbar--scrolled .hamburger-line {
+  background-color: #000000;
+}
+
+/* 2. WHEN OPEN: Morph to X and force lines back to WHITE */
+.navbar__menu.is-active .hamburger-line,
+.navbar--scrolled .navbar__menu.is-active .hamburger-line {
+  background-color: #ffffff !important; 
+}
+
+.navbar__menu.is-active .hamburger-line:first-child {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.navbar__menu.is-active .hamburger-line:last-child {
+  transform: translateY(-1px) rotate(-45deg);
+}
+
+/* --- Mobile Menu Overlay --- */
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100vh;
+  background: #0b0f19; /* Dark background so white close icon pops out */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 100px 32px 40px;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(-10px);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 999;
+}
+
+.mobile-menu--open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.mobile-menu__links {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.mobile-menu__links a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.mobile-menu__cta {
+  color: var(--accent-color) !important;
+}
+
+.mobile-menu__bottom {
+  border-top: 1px solid var(--border-color);
+  padding-top: 24px;
+  color: var(--text-muted);
+}
+
+/* Responsive Trigger */
+@media (max-width: 868px) {
+  .navbar__inner {
+    width: calc(100% - 32px);
+      margin: 0px auto;
+
+  }
+.talk_button{
+    display: block !important;
+}
+  .navbar__logo {
+    gap: 6px;
+  }
+
+  .navbar__links,
+  .navbar__contact {
+    display: none;
+  }
+
+  .navbar__menu {
+    display: flex;
+  }
+  .navbar--scrolled {
+  background: var(--nav-bg-scrolled);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  height:calc(var(--nav-height) * 0.8);
+}
+    .logofin {
+    width: 50px;
+    height: 50%;
+  }
+
+}

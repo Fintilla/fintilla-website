@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(\"/c/Program Files/Google/Chrome/Application/chrome.exe\" --headless=new --disable-gpu --no-sandbox --window-size=1440,4200 --screenshot=/tmp/shots/full.png http://localhost:3001)",
+      "Bash(\"/c/Program Files/Google/Chrome/Application/chrome.exe\" --headless=new --disable-gpu --no-sandbox --window-size=1440,4200 --virtual-time-budget=6000 --screenshot=/tmp/shots/full2.png http://localhost:3001)"
+    ]
+  }
+}
